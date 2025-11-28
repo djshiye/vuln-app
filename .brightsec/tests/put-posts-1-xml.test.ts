@@ -34,6 +34,9 @@ test('PUT /posts/1.xml', { signal: AbortSignal.timeout(timeout) }, async () => {
       method: HttpMethod.PUT,
       url: `${baseUrl}/posts/1.xml?meu=1`,
       body: `<?xml version="1.0" encoding="UTF-8"?>\n<post>\n  <content>Updated content</content>\n  <title>Updated title</title>\n</post>`,
-      headers: { 'Content-Type': 'application/xml', 'X-Authentication-Token': 'your-authentication-token' }
+      headers: {
+        'Content-Type': 'application/xml',
+        'X-Authentication-Token': 'your-authentication-token'
+      }
     });
 });

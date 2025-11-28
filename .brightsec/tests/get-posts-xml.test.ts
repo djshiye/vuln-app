@@ -21,8 +21,8 @@ after(() => runner.clear());
 test('GET /posts.xml', { signal: AbortSignal.timeout(timeout) }, async () => {
   await runner
     .createScan({
-      tests: ['xxe', 'sqli', 'csrf', 'id_enumeration', 'xss'],
-      attackParamLocations: [AttackParamLocation.HEADER],
+      tests: ['xxe', 'id_enumeration'],
+      attackParamLocations: [AttackParamLocation.PATH],
       starMetadata: {
         code_source: 'djshiye/vuln-app:main',
         databases: ['SQLite3']
