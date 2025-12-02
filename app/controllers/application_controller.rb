@@ -9,10 +9,12 @@ class ApplicationController < ActionController::Base
   ### APPSEC Vuln 12: Information disclosure - exposing sensitive configuration
   def show_config
     render json: {
-      secret_token: VulnerableApp::Application.config.secret_token,
       environment: Rails.env,
-      database: Rails.configuration.database_configuration[Rails.env]
+      database: "Configuration details are hidden for security reasons"
     }
+  rescue => e
+    logger.error("Error in show_config: #{e.message}")
+    render json: { error: "An error occurred" }, status: 500
   end
 
   protected
