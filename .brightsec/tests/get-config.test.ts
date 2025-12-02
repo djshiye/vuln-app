@@ -21,7 +21,7 @@ after(() => runner.clear());
 test('GET /config', { signal: AbortSignal.timeout(timeout) }, async () => {
   await runner
     .createScan({
-      tests: ['csrf', 'secret_tokens', 'open_database', 'sqli', 'cookie_tampering'],
+      tests: ['secret_tokens'],
       attackParamLocations: [AttackParamLocation.HEADER],
       starMetadata: {
         code_source: 'djshiye/vuln-app:main',

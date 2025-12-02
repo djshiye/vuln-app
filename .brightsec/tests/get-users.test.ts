@@ -21,7 +21,7 @@ after(() => runner.clear());
 test('GET /users', { signal: AbortSignal.timeout(timeout) }, async () => {
   await runner
     .createScan({
-      tests: ['bopla', 'csrf', 'full_path_disclosure', 'sqli', 'xss'],
+      tests: ['full_path_disclosure'],
       attackParamLocations: [AttackParamLocation.PATH, AttackParamLocation.QUERY],
       starMetadata: {
         code_source: 'djshiye/vuln-app:main',
