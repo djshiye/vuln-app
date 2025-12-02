@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
       environment: Rails.env,
       database: "Configuration details are hidden for security reasons"
     }
+  rescue => e
+    logger.error("Error in show_config: #{e.message}")
+    render json: { error: "An error occurred" }, status: 500
   end
 
   protected
